@@ -36,11 +36,21 @@ class GoogleAuth extends React.Component {
 
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
-      return <div>I don't know if signed in</div>;
+      return null;
     } else if (this.state.isSignedIn) {
-      return <div>I am signed in!</div>;
+      return (
+        <button className="ui red google button">
+          <i className="google icon" />
+          Sign Out
+        </button>
+      );
     } else {
-      return <div>I am not signed in</div>;
+      return (
+        <button className="ui red google button">
+          <i className="google icon" />
+          Sign In with Google
+        </button>
+      );
     }
   }
 
@@ -51,4 +61,7 @@ class GoogleAuth extends React.Component {
 
 export default GoogleAuth;
 
-/* https://developers.google.com/api-client-library/javascript/reference/referencedocs */
+/*
+    https://developers.google.com/api-client-library/javascript/reference/referencedocs
+    gapi.auth2.getAuthInstance().signIn()
+*/
