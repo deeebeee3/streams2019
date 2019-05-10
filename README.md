@@ -1,6 +1,32 @@
 # streams2019
 Twitch TV like clone mess around...
 
+#REDUX DEV TOOLS
+https://github.com/zalmoxisus/redux-devtools-extension
+
+INSTALLATION:
+
+1. For Chrome
+from Chrome Web Store;
+download extension.zip from last releases, unzip, open chrome://extensions url and turn on developer mode from top left and then click; on Load Unpacked and select the extracted folder for use
+or build it with npm i && npm run build:extension and load the extension's folder ./build/extension;
+or run it in dev mode with npm i && npm start and load the extension's folder ./dev.
+
+
+1.2 Advanced store setup
+If you setup your store with middleware and enhancers, change:
+
+  import { createStore, applyMiddleware, compose } from 'redux';
+
++ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
++ const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
+- const store = createStore(reducer, /* preloadedState, */ compose(
+    applyMiddleware(...middleware)
+  ));
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
