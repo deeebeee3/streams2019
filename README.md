@@ -24,6 +24,12 @@ If you setup your store with middleware and enhancers, change:
     applyMiddleware(...middleware)
   ));
 
+Saves all data in Redux Store between refreshes of the page 
+(can have multiple debug sessions - great for debugging and error checking):
+
+http://localhost:3000/?debug_session=befbwufbwu
+
+
 
 
 
