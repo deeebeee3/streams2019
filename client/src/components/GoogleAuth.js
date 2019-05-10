@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { signIn, signOut } from "../actions";
 
 class GoogleAuth extends React.Component {
   //initialize state object
@@ -23,15 +25,19 @@ class GoogleAuth extends React.Component {
             isSignedIn: this.auth.isSignedIn.get()
           });
 
-          //whenever a user signs in/out the gapi listener method will call onAuthChange callback function
+          //whenever a user signs in/out the gapi listener method will call onAuthChange 
+          //callback function and pass a boolean argument
           this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
   }
 
-  onAuthChange = () => {
-    /* use an arrow function to have correct context available*/
-    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+  onAuthChange = (isSignedIn) => {
+    if(isSignedIn){
+      this.props.signIn();
+    }else{
+      this.props.signOut();
+    }
   };
 
   onSignInClick = () => {
@@ -67,7 +73,10 @@ class GoogleAuth extends React.Component {
   }
 }
 
-export default GoogleAuth;
+export default connect(
+  null,
+  { signIn, signOut }
+)(GoogleAuth);
 
 /*
     https://developers.google.com/api-client-library/javascript/reference/referencedocs
