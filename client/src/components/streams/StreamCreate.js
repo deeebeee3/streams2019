@@ -2,11 +2,14 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 class StreamCreate extends React.Component {
-  renderInput(/*formProps*/ { input, label }) {
+  renderInput(/*formProps*/ { input, label, meta }) {
+    console.log(meta);
+
     return (
       <div className="field">
         <label>{label}</label>
         <input {...input} />
+        <div>{meta.error}</div>
       </div>
     );
   }
@@ -36,6 +39,7 @@ class StreamCreate extends React.Component {
   }
 }
 
+//called whenever form is initially rendered or user interacts with it in any way
 const validate = formValues => {
   const errors = {};
 
@@ -43,12 +47,14 @@ const validate = formValues => {
     errors.title = "You must enter a title";
   }
   if (!formValues.description) {
-    errors.title = "You must enter a description";
+    errors.description = "You must enter a description";
   }
 
+  //everytime object returned, our form will be rerendered
   return errors;
 };
 
 export default reduxForm({
-  form: "streanCreate"
+  form: "streanCreate",
+  validate: validate
 })(StreamCreate);
