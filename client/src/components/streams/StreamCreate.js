@@ -72,7 +72,7 @@ const validate = formValues => {
 };
 
 const formWrapped = reduxForm({
-  form: "streanCreate",
+  form: "streamCreate",
   validate: validate
 })(StreamCreate);
 
