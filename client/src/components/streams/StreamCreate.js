@@ -12,13 +12,13 @@ class StreamCreate extends React.Component {
   }
 
   onSubmit(formValues) {
-      //now dont get useless event object which we only needed so we could preventDefault
-      //this works because our onSubmit is wrapped with redux forms handleSubmit function
-      console.log(formValues);
+    //now dont get useless event object which we only needed so we could preventDefault
+    //this works because our onSubmit is wrapped with redux forms handleSubmit function
+    console.log(formValues);
   }
 
   render() {
-    //console.log(this.props);
+    //console.log(this.props); - props from redux form
     return (
       <form
         onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -35,6 +35,19 @@ class StreamCreate extends React.Component {
     );
   }
 }
+
+const validate = formValues => {
+  const errors = {};
+
+  if (!formValues.title) {
+    errors.title = "You must enter a title";
+  }
+  if (!formValues.description) {
+    errors.title = "You must enter a description";
+  }
+
+  return errors;
+};
 
 export default reduxForm({
   form: "streanCreate"
