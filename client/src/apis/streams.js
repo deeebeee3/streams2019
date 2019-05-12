@@ -1,4 +1,3 @@
-import axio from "axios";
 import Axios from "axios";
 
 export default Axios.create({
