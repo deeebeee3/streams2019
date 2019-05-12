@@ -1,21 +1,23 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { createStream } from "../../actions";
 
 class StreamCreate extends React.Component {
   renderError({ error, touched }) {
-      if(touched && error){
-        return(
-            <div className="ui error message">
-                <div className="header">{error}</div>
-            </div>
-        );
-      }
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
+        </div>
+      );
+    }
   }
 
   renderInput = (/*formProps*/ { input, label, meta }) => {
     //console.log(meta);
 
-    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
+    const className = `field ${meta.error && meta.touched ? "error" : ""}`;
 
     return (
       <div className={className}>
@@ -25,7 +27,7 @@ class StreamCreate extends React.Component {
         {this.renderError(meta)}
       </div>
     );
-  }
+  };
 
   onSubmit(formValues) {
     //now dont get useless event object which we only needed so we could preventDefault
