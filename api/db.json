@@ -25,6 +25,12 @@
       "description": "This was made by me",
       "userId": "102334128808310402785",
       "id": 5
+    },
+    {
+      "title": "Programmatic navigation",
+      "description": "You should see me in the list of streams",
+      "userId": "102334128808310402785",
+      "id": 6
     }
   ]
 }
