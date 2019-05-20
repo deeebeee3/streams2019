@@ -9,6 +9,22 @@
       "title": "My second stream",
       "description": "this is an awesome second stream",
       "id": 2
+    },
+    {
+      "title": "Random Stream",
+      "description": "It's ace dude",
+      "id": 3
+    },
+    {
+      "title": "Random Stream",
+      "description": "It's ace dude",
+      "id": 4
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made by me",
+      "userId": "102334128808310402785",
+      "id": 5
     }
   ]
 }
