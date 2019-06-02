@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
 import { fetchStream, editStream } from "../../actions";
@@ -23,7 +24,9 @@ class StreamEdit extends React.Component {
           //initialValues={{ title: "Edit Me", description: "change Me too" }}
 
           //stream has a title and description property so these will be used as initial values for form
-          initialValues={this.props.stream}
+          //use lodash to only pass title and description to StreamForm - not the id and userId
+          initialValues={_.pick(this.props.stream, "title", "description")}
+          
           onSubmit={this.onSubmit}
         />
       </div>
