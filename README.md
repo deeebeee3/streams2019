@@ -101,3 +101,17 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+# RTMP Server
+
+github.com/illuspas/Node-Media-Server
+
+also...
+
+Instead of:
+* const { NodeMediaServer } = require('node-media-server');
+we need to change the import to this:
+* const NodeMediaServer = require('node-media-server');
+
