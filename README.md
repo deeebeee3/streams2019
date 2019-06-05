@@ -112,12 +112,22 @@ also...
 
 Instead of:
 * const { NodeMediaServer } = require('node-media-server');
+
 we need to change the import to this:
+
 * const NodeMediaServer = require('node-media-server');
 
 #Install OBS
 
 Installed OBS
+OBS 
+- create a scene
+- add sources - display screen / audio built in mic
+- click settings - then the stream tab and set the following options:
+  Service: Custom...
+  Server: rtmp://localhost/live
+  Stream Key: The id of whatever stream you have clicked in the Stream app (eg. 1)
+
 
 #FLV.js
 
